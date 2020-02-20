@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SensorList from './SensorList';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 class App extends Component {
-	state = {
-		sensors: [
-			{ id: '1', name: 'pH-verdi', value: [] },
-			{ id: '2', name: 'Jordfuktighet', value: [] },
-			{ id: '3', name: 'Luftfuktighet', value: [] },
-			{ id: '4', name: 'CO2', value: [] }
-		]
-	};
 	render() {
 		//console.log(this.props);
 		const { sensors } = this.props;
@@ -25,8 +19,15 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+	console.log(state);
 	return {
-		sensors: state.project.sensors //project in rootreducer
+		sensors: state.firestore.ordered.sensors //project in rootreducer. Dummy data
 	};
 };
-export default connect(mapStateToProps)(App);
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect([
+		//when this component is active, the component to listen to is the sensors
+		{ collection: 'sensors' } //synced up with the sensors collection in firebase
+	])
+)(App);
