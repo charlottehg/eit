@@ -1,7 +1,11 @@
+import authReducer from './authReducer';
 import projectReducer from './projectReducer';
 import { combineReducers } from 'redux';
-import { firebaseReducer } from 'react-redux-firebase';
 
-export default combineReducers({
-	firebase: firebaseReducer
+//combine the reducers
+const rootReducer = combineReducers({
+	auth: authReducer, //update info on the auth prop insite the stsate obj.
+	project: projectReducer //update info on the project propertyin
 });
+
+export default rootReducer;

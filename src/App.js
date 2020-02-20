@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SensorSummary from './SensorSummary';
+import { connect } from 'react-redux';
+import SensorList from './SensorList';
 
 class App extends Component {
 	state = {
@@ -11,13 +12,21 @@ class App extends Component {
 		]
 	};
 	render() {
+		//console.log(this.props);
+		const { sensors } = this.props;
+
 		return (
 			<div className="sensor-container">
 				<h1 className="center blue-text">Sensors</h1>
-				<SensorSummary sensors={this.state.sensors} />
+				<SensorList sensors={sensors} />
 			</div>
 		);
 	}
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		sensors: state.project.sensors //project in rootreducer
+	};
+};
+export default connect(mapStateToProps)(App);
