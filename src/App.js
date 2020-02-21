@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SensorList from './SensorList';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import Logo from './plantInSpace.png';
 
 class App extends Component {
 	render() {
@@ -10,9 +11,14 @@ class App extends Component {
 		const { sensors } = this.props;
 
 		return (
-			<div className="sensor-container">
-				<h1 className="center blue-text">Sensors</h1>
-				<SensorList sensors={sensors} />
+			//div for hele siden
+			<div className="container">
+				<div className="row section-2-spacing-top">
+					<img id="plant" src={Logo} alt="plant" />
+					<h1 className="header-text">Plantview</h1>
+					<p>Følgende verdier viser plantens pH-verdi, temperatur, CO2 og jord.</p>
+					<SensorList className="" sensors={sensors} />
+				</div>
 			</div>
 		);
 	}

@@ -2,9 +2,10 @@ import React from 'react';
 
 const SensorSummary = ({ sensor }) => {
 	return (
-		<div className="card z-dept-0 project-summary">
-			<div className="card-content grey-text text-darken-3">
-				<span className="card-title">{sensor.name}</span>
+		<div className="col l3 card project-summary blue-grey darken-1">
+			<div className="card-content white-text" id="cardcontent">
+				<p className="card-title">{sensor.name}</p>
+				<p> Value: {sensor.value}</p>
 			</div>
 		</div>
 	);
