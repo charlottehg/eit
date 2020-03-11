@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import SensorList from './SensorList';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import Logo from './plantInSpace.png';
 
 class App extends Component {
 	render() {
-		//console.log(this.props);
 		const { sensors } = this.props;
 
 		return (
