@@ -11,10 +11,9 @@ class App extends Component {
 		const { sensors } = this.props;
 
 		return (
-			//div for hele siden
+			//div for hele siden <img id="plant" src={Logo} alt="plant" />
 			<div className="container">
 				<div className="row section-2-spacing-top">
-					<img id="plant" src={Logo} alt="plant" />
 					<h1 className="header-text">Plantview</h1>
 					<p>Følgende verdier viser plantens pH-verdi, temperatur, CO2 og jord.</p>
 					<SensorList className="" sensors={sensors} />
