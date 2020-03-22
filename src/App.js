@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import SensorList from './SensorList';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import PlantChart from './PlantChart';
 
 class App extends Component {
 	render() {
+		//alt som skal vises på skjerm må kalles med render function
 		const { sensors } = this.props;
 
 		return (
@@ -16,6 +18,7 @@ class App extends Component {
 					<p>Følgende verdier viser plantens pH-verdi, temperatur, CO2 og jord.</p>
 					<SensorList className="" sensors={sensors} />
 				</div>
+				<PlantChart />
 			</div>
 		);
 	}

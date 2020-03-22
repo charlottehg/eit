@@ -1,4 +1,5 @@
 import React from 'react';
+import { Chart } from 'chart.js';
 import SensorSummary from './SensorSummary';
 
 const SensorList = ({ sensors }) => {
